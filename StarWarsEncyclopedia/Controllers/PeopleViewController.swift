@@ -9,7 +9,6 @@ import UIKit
 
 class PeopleViewController: UITableViewController {
     
-//    var people: [String] = Array()
     var people2 = [PeopleResult]()
 
     private var pendingWorkItem: DispatchWorkItem?
@@ -73,7 +72,21 @@ class PeopleViewController: UITableViewController {
         cell.textLabel?.text = people2[indexPath.row].name
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DetailsPeopleSegue", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailsPeopleViewController = segue.destination as! DetailsPeopleViewController
+        let indexPath = sender as! NSIndexPath
+        detailsPeopleViewController.name = people2[indexPath.row].name
+        detailsPeopleViewController.gender = people2[indexPath.row].gender
+        detailsPeopleViewController.mass = people2[indexPath.row].mass
+        detailsPeopleViewController.birthyear = people2[indexPath.row].birthYear
+    }
+    
+    
 
 }
 

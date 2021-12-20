@@ -60,4 +60,16 @@ class FilmsTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DetailsFilmsSegue", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailsFilmsViewController = segue.destination as! DetailsFilmsViewController
+        let indexPath = sender as! NSIndexPath
+        detailsFilmsViewController.filmTitle = films?.results[indexPath.row].title
+        detailsFilmsViewController.releaseDate = films?.results[indexPath.row].releaseDate
+        detailsFilmsViewController.director = films?.results[indexPath.row].director
+        detailsFilmsViewController.openingCrawl = films?.results[indexPath.row].openingCrawl
+    }
 }

@@ -20,6 +20,8 @@
 		FC24ACA527709E010024AC72 /* StarWarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC24ACA427709E010024AC72 /* StarWarsModel.swift */; };
 		FC24ACA72770A4900024AC72 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC24ACA62770A4900024AC72 /* People.swift */; };
 		FCEFF63027710889008B5126 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEFF62F27710889008B5126 /* Films.swift */; };
+		FCEFF63427712413008B5126 /* DetailsPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEFF63327712413008B5126 /* DetailsPeopleViewController.swift */; };
+		FCEFF63827712D0B008B5126 /* DetailsFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEFF63727712D0B008B5126 /* DetailsFilmsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		FC24ACA427709E010024AC72 /* StarWarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsModel.swift; sourceTree = "<group>"; };
 		FC24ACA62770A4900024AC72 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		FCEFF62F27710889008B5126 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
+		FCEFF63327712413008B5126 /* DetailsPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPeopleViewController.swift; sourceTree = "<group>"; };
+		FCEFF63727712D0B008B5126 /* DetailsFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFilmsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 			children = (
 				FC24AC34276F272B0024AC72 /* PeopleViewController.swift */,
 				FC24ACA0276FC4130024AC72 /* FilmsTableViewController.swift */,
+				FCEFF63327712413008B5126 /* DetailsPeopleViewController.swift */,
+				FCEFF63727712D0B008B5126 /* DetailsFilmsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,7 +294,9 @@
 			files = (
 				FC24ACA72770A4900024AC72 /* People.swift in Sources */,
 				FC24AC35276F272B0024AC72 /* PeopleViewController.swift in Sources */,
+				FCEFF63427712413008B5126 /* DetailsPeopleViewController.swift in Sources */,
 				FC24AC31276F272B0024AC72 /* AppDelegate.swift in Sources */,
+				FCEFF63827712D0B008B5126 /* DetailsFilmsViewController.swift in Sources */,
 				FCEFF63027710889008B5126 /* Films.swift in Sources */,
 				FC24ACA527709E010024AC72 /* StarWarsModel.swift in Sources */,
 				FC24AC33276F272B0024AC72 /* SceneDelegate.swift in Sources */,
