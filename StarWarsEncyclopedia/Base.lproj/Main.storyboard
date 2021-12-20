@@ -68,7 +68,6 @@
         <!--People-->
         <scene sceneID="Kee-0O-lNM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cpx-UV-AEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="Ie8-aw-ELx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="People" image="person.3.fill" catalog="system" id="CrC-OB-gJo"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dPM-DF-KiM">
@@ -79,6 +78,7 @@
                         <segue destination="Cno-2S-iFu" kind="relationship" relationship="rootViewController" id="09Y-BC-kPD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cpx-UV-AEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2651" y="723"/>
         </scene>
@@ -103,7 +103,6 @@
         <!--Films-->
         <scene sceneID="CUY-6z-72j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BCb-tw-4fM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="ATU-9w-pY0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Films" image="film.fill" catalog="system" id="0yc-7y-b0e"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TVN-ZQ-lnK">
@@ -114,6 +113,7 @@
                         <segue destination="dN9-nx-PZh" kind="relationship" relationship="rootViewController" id="9WL-xh-CNb"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCb-tw-4fM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3454" y="723"/>
         </scene>

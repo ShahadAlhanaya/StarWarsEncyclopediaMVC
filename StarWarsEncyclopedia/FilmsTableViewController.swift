@@ -8,25 +8,37 @@
 import UIKit
 
 class FilmsTableViewController: UITableViewController {
+    
     var films: [String] = Array()
+
+    private var pendingWorkItem: DispatchWorkItem?
+    let queue = DispatchQueue(label: "GetFilmsQueue")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let url = URL(string: "https://swapi.dev/api/films/?format=json")
-        let session = URLSession.shared
-        let task = session.dataTask(with: url!, completionHandler: {
-            data, response, error in
-            
+        fetch()
+    
+    }
+    
+    func fetch(){
+        pendingWorkItem?.cancel()
+        let newWorkItem = DispatchWorkItem {
+             self.getFilms()
+        }
+        pendingWorkItem = newWorkItem
+        queue.sync(execute: newWorkItem)
+    }
+    
+    func getFilms(){
+        StarWarsModel.getAllFilms(completionHandler: {data,response,error in
             do{
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary{
-                    print(jsonResult)
                     if let results = jsonResult["results"] as? [[String:Any]] {
                         
                         let resultsArray = results
                         for result in resultsArray {
                             let title = result["title"] as! String
                             self.films.append(String(title))
-                            print(result)
                         }
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -37,7 +49,6 @@ class FilmsTableViewController: UITableViewController {
                 print(error)
             }
         })
-        task.resume()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -17,6 +17,7 @@
 		FC24AC52276F27300024AC72 /* StarWarsEncyclopediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC24AC51276F27300024AC72 /* StarWarsEncyclopediaUITests.swift */; };
 		FC24AC54276F27300024AC72 /* StarWarsEncyclopediaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC24AC53276F27300024AC72 /* StarWarsEncyclopediaUITestsLaunchTests.swift */; };
 		FC24ACA1276FC4130024AC72 /* FilmsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC24ACA0276FC4130024AC72 /* FilmsTableViewController.swift */; };
+		FC24ACA527709E010024AC72 /* StarWarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC24ACA427709E010024AC72 /* StarWarsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		FC24AC51276F27300024AC72 /* StarWarsEncyclopediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsEncyclopediaUITests.swift; sourceTree = "<group>"; };
 		FC24AC53276F27300024AC72 /* StarWarsEncyclopediaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsEncyclopediaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC24ACA0276FC4130024AC72 /* FilmsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsTableViewController.swift; sourceTree = "<group>"; };
+		FC24ACA427709E010024AC72 /* StarWarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				FC24AC3B276F27300024AC72 /* LaunchScreen.storyboard */,
 				FC24AC3E276F27300024AC72 /* Info.plist */,
 				FC24ACA0276FC4130024AC72 /* FilmsTableViewController.swift */,
+				FC24ACA427709E010024AC72 /* StarWarsModel.swift */,
 			);
 			path = StarWarsEncyclopedia;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				FC24AC35276F272B0024AC72 /* PeopleViewController.swift in Sources */,
 				FC24AC31276F272B0024AC72 /* AppDelegate.swift in Sources */,
+				FC24ACA527709E010024AC72 /* StarWarsModel.swift in Sources */,
 				FC24AC33276F272B0024AC72 /* SceneDelegate.swift in Sources */,
 				FC24ACA1276FC4130024AC72 /* FilmsTableViewController.swift in Sources */,
 			);
