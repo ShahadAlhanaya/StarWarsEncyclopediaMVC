@@ -9,7 +9,8 @@ import UIKit
 
 class PeopleViewController: UITableViewController {
     
-    var people: [String] = Array()
+//    var people: [String] = Array()
+    var people2 = [PeopleResult]()
 
     private var pendingWorkItem: DispatchWorkItem?
     let queue = DispatchQueue(label: "GetPeopleQueue")
@@ -32,30 +33,23 @@ class PeopleViewController: UITableViewController {
     
     func getPeople(){
         StarWarsModel.getAllPeople(completionHandler: {data,response,error in
+            guard let myData = data else { return }
             do{
-                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary{
-                    if let nextUrl = jsonResult["next"] as? String{
-                        StarWarsModel.peopleNextUrl = nextUrl
-                    }else{
-                        self.nextPage = false
-                    }
-                    if let results = jsonResult["results"] as? [[String:Any]] {
-                        
-                        let resultsArray = results
-                        for result in resultsArray {
-                            let name = result["name"] as! String
-                            self.people.append(String(name))
-                        }
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                        
-                        if self.nextPage{
-                            self.getPeople()
-                        }else{
-                            return
-                        }
-                    }
+                let decoder = JSONDecoder()
+                let jsonResult = try decoder.decode(People.self, from: myData)
+                if let nextUrl = jsonResult.next {
+                    StarWarsModel.peopleNextUrl = nextUrl
+                }else{
+                    self.nextPage = false
+                }
+                self.people2.append(contentsOf: jsonResult.results)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                if self.nextPage{
+                    self.getPeople()
+                }else{
+                    return
                 }
             }catch{
                 print(error)
@@ -67,7 +61,7 @@ class PeopleViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        return people2.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,7 +70,7 @@ class PeopleViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = people[indexPath.row]
+        cell.textLabel?.text = people2[indexPath.row].name
         return cell
     }
 

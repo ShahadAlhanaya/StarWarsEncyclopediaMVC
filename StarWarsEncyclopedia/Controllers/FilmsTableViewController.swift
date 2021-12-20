@@ -9,7 +9,7 @@ import UIKit
 
 class FilmsTableViewController: UITableViewController {
     
-    var films: [String] = Array()
+    var films: Films?
 
     private var pendingWorkItem: DispatchWorkItem?
     let queue = DispatchQueue(label: "GetFilmsQueue")
@@ -31,19 +31,14 @@ class FilmsTableViewController: UITableViewController {
     
     func getFilms(){
         StarWarsModel.getAllFilms(completionHandler: {data,response,error in
+            guard let myData = data else { return }
             do{
-                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary{
-                    if let results = jsonResult["results"] as? [[String:Any]] {
-                        
-                        let resultsArray = results
-                        for result in resultsArray {
-                            let title = result["title"] as! String
-                            self.films.append(String(title))
-                        }
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
+                let decoder = JSONDecoder()
+                let jsonResult = try decoder.decode(Films.self, from: myData)
+                self.films = jsonResult
+//                print(jsonResult)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             }catch{
                 print(error)
@@ -52,7 +47,7 @@ class FilmsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return films.count
+        return films?.count ?? 0
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,7 +56,7 @@ class FilmsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = films[indexPath.row]
+        cell.textLabel?.text = films?.results[indexPath.row].title
         return cell
     }
 
